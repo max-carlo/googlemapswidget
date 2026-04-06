@@ -5,12 +5,6 @@ export default async function handler(req, res) {
   try {
     const PLACE_ID = process.env.PLACE_ID;
     const GOOGLE_PLACES_KEY = process.env.GOOGLE_PLACES_KEY;
-    const CRON_SECRET = process.env.CRON_SECRET;
-
-    const authHeader = req.headers.authorization || '';
-    if (authHeader !== `Bearer ${CRON_SECRET}`) {
-      return res.status(401).json({ error: true, message: 'Unauthorized' });
-    }
 
     const fields = [
       'displayName',
